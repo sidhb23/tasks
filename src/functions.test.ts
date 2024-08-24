@@ -3,7 +3,7 @@ import {
     fahrenheitToCelius,
     shout,
     isQuestion,
-    convertYesNo
+    convertYesNo,
 } from "./functions";
 
 describe("Testing the basic functions", () => {
