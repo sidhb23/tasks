@@ -7,7 +7,7 @@ import {
     removeDollars,
     shoutIfExclaiming,
     stringsToIntegers,
-    tripleNumbers
+    tripleNumbers,
 } from "./arrays";
 
 describe("Testing the array functions", () => {
@@ -34,7 +34,7 @@ describe("Testing the array functions", () => {
         expect(NUMBERS_7).toEqual([199, 1, 550, 50, 200]);
     });
 
-    test("Testing the bookEndList function", () => {
+    test("(3 pts) Testing the bookEndList function", () => {
         expect(bookEndList(NUMBERS_1)).toEqual([1, 3]);
         expect(bookEndList(NUMBERS_2)).toEqual([100, 200]);
         expect(bookEndList(NUMBERS_3)).toEqual([5, 5]);
@@ -43,7 +43,7 @@ describe("Testing the array functions", () => {
         expect(bookEndList(NUMBERS_6)).toEqual([-100, 200]);
     });
 
-    test("Testing the tripleNumbers function", () => {
+    test("(3 pts) Testing the tripleNumbers function", () => {
         expect(tripleNumbers(NUMBERS_1)).toEqual([3, 6, 9]);
         expect(tripleNumbers(NUMBERS_2)).toEqual([300, 900, 600]);
         expect(tripleNumbers(NUMBERS_3)).toEqual([15]);
@@ -75,7 +75,7 @@ describe("Testing the array functions", () => {
         expect(VALUES_7).toEqual(["apple", "banana", "cactus"]);
     });
 
-    test("Testing the stringsToIntegers function", () => {
+    test("(3 pts) Testing the stringsToIntegers function", () => {
         expect(stringsToIntegers(VALUES_1)).toEqual([1, 2, 3]);
         expect(stringsToIntegers(VALUES_2)).toEqual([100, 200, 300]);
         expect(stringsToIntegers(VALUES_3)).toEqual([5]);
@@ -110,7 +110,7 @@ describe("Testing the array functions", () => {
         expect(AMOUNTS_8).toEqual(["$one", "two", "$three"]);
     });
 
-    test("Testing the removeDollars function", () => {
+    test("(3 pts) Testing the removeDollars function", () => {
         expect(removeDollars(AMOUNTS_1)).toEqual([1, 2, 3]);
         expect(removeDollars(AMOUNTS_2)).toEqual([100, 200, 300, 400]);
         expect(removeDollars(AMOUNTS_3)).toEqual([5]);
@@ -142,24 +142,24 @@ describe("Testing the array functions", () => {
         expect(MESSAGE_6).toEqual(["No", "Caps", "here.", "Right?"]);
     });
 
-    test("Testing the shoutIfExclaiming function", () => {
+    test("(3 pts) Testing the shoutIfExclaiming function", () => {
         expect(shoutIfExclaiming(MESSAGE_1)).toEqual([
             "Hello",
             "you",
             "are",
-            "GREAT!"
+            "GREAT!",
         ]);
         expect(shoutIfExclaiming(MESSAGE_2)).toEqual([
             "OHO!",
             "OHO!",
             "OHO!",
             "OHO!",
-            "OHO!"
+            "OHO!",
         ]);
         expect(shoutIfExclaiming(MESSAGE_3)).toEqual(["Lo", "HIGH!"]);
         expect(shoutIfExclaiming(MESSAGE_4)).toEqual([]);
         expect(shoutIfExclaiming(MESSAGE_5)).toEqual([
-            "THIS ONE IS VERY LONG!"
+            "THIS ONE IS VERY LONG!",
         ]);
         expect(shoutIfExclaiming(MESSAGE_6)).toEqual(["No", "Caps", "here."]);
     });
@@ -185,7 +185,7 @@ describe("Testing the array functions", () => {
             "four",
             "five",
             "six",
-            "seven"
+            "seven",
         ]);
         expect(WORDS_3).toEqual(["alpha", "beta", "gamma"]);
         expect(WORDS_4).toEqual(["Longest", "Words", "Possible"]);
@@ -193,7 +193,7 @@ describe("Testing the array functions", () => {
         expect(WORDS_6).toEqual(["", "", "", ""]);
     });
 
-    test("Testing the countShortWords function", () => {
+    test("(3 pts) Testing the countShortWords function", () => {
         expect(countShortWords(WORDS_1)).toEqual(5);
         expect(countShortWords(WORDS_2)).toEqual(3);
         expect(countShortWords(WORDS_3)).toEqual(0);
@@ -226,7 +226,7 @@ describe("Testing the array functions", () => {
             "blue",
             "blue",
             "green",
-            "red"
+            "red",
         ]);
         expect(COLORS_4).toEqual(["purple", "orange", "violet"]);
         expect(COLORS_5).toEqual(["red", "blue", "yellow"]);
@@ -236,7 +236,7 @@ describe("Testing the array functions", () => {
         expect(COLORS_9).toEqual([]);
     });
 
-    test("Testing the allRGB function", () => {
+    test("(3 pts) Testing the allRGB function", () => {
         expect(allRGB(COLORS_1)).toEqual(true);
         expect(allRGB(COLORS_2)).toEqual(true);
         expect(allRGB(COLORS_3)).toEqual(true);
@@ -251,7 +251,7 @@ describe("Testing the array functions", () => {
     //////////////////////////////////
     // makeMath
 
-    test("Testing the makeMath function", () => {
+    test("(3 pts) Testing the makeMath function", () => {
         expect(makeMath(NUMBERS_1)).toEqual("6=1+2+3");
         expect(makeMath(NUMBERS_2)).toEqual("600=100+300+200");
         expect(makeMath(NUMBERS_3)).toEqual("5=5");
@@ -261,7 +261,7 @@ describe("Testing the array functions", () => {
 
     //////////////////////////////////
     // injectPositive
-    test("Testing the injectPositive function", () => {
+    test("(3 pts) Testing the injectPositive function", () => {
         expect(injectPositive(NUMBERS_1)).toEqual([1, 2, 3, 6]);
         expect(injectPositive(NUMBERS_2)).toEqual([100, 300, 200, 600]);
         expect(injectPositive(NUMBERS_3)).toEqual([5, 5]);
