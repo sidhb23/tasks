@@ -14,8 +14,7 @@ function App(): React.JSX.Element {
 
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.{" "}
-                <span style={{ color: "red" }}>Siddhartha Bajracharya</span>
+                automaticstatally reload. Siddhartha Bajracharya. Hello World.
             </p>
 
             <Container>
