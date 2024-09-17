@@ -5,7 +5,13 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length === 0) {
+        return [];
+    } else if (numbers.length === 1) {
+        return [numbers[0], numbers[0]];
+    } else {
+        return [numbers[0], numbers[numbers.length - 1]];
+    }
 }
 
 /**
@@ -13,7 +19,7 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    return numbers.map((number: number): number => number * 3);
 }
 
 /**
@@ -21,7 +27,14 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    return numbers.map((str: string): number => {
+        const parsed = parseInt(str, 10);
+        if (isNaN(parsed)) {
+            return 0;
+        } else {
+            return parsed;
+        }
+    });
 }
 
 /**
@@ -32,7 +45,16 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    return amounts.map((amount: string): number => {
+        const removed$ = amount.replace(/^\$/, "");
+        const parsed = parseInt(removed$, 10);
+
+        if (isNaN(parsed)) {
+            return 0;
+        } else {
+            return parsed;
+        }
+    });
 };
 
 /**
@@ -41,7 +63,16 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    return messages.reduce((result: string[], message: string) => {
+        if (message.endsWith("?")) {
+            return result;
+        } else if (message.endsWith("!")) {
+            result.push(message.toUpperCase());
+        } else {
+            result.push(message);
+        }
+        return result;
+    }, []);
 };
 
 /**
@@ -49,7 +80,13 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    let count: number = 0;
+    for (const word of words) {
+        if (word.length < 4) {
+            count++;
+        }
+    }
+    return count;
 }
 
 /**
@@ -58,7 +95,10 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    return colors.every(
+        (color: string) =>
+            color === "red" || color === "blue" || color === "green",
+    );
 }
 
 /**
@@ -69,7 +109,14 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length === 0) {
+        return "0=0";
+    }
+
+    const sum = addends.reduce((total, num) => total + num, 0);
+    const addendsString = addends.join("+");
+
+    return `${sum}=${addendsString}`;
 }
 
 /**
@@ -82,5 +129,26 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    let sum: number = 0;
+    const result: number[] = [];
+
+    for (let i = 0; i < values.length; i++) {
+        const value = values[i];
+        if (value < 0) {
+            // After the first negative number, insert the current sum
+            result.push(value); // Add the negative number itself
+            result.push(sum); // Add the sum of all previous numbers
+            // Append the remaining numbers in the array to result
+            result.push(...values.slice(i + 1));
+            return result;
+        } else {
+            // Add the current number to the sum and to the result
+            sum += value;
+            result.push(value);
+        }
+    }
+
+    // If no negative number is found, append the sum to the end
+    result.push(sum);
+    return result;
 }
