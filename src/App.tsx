@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import nyImage from "./NY.jpg"; // Import the image
-import Button from "react-bootstrap/esm/Button";
+import { Button } from "react-bootstrap";
 import { Col, Container, Row } from "react-bootstrap";
 
 function App(): React.JSX.Element {
