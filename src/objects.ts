@@ -93,7 +93,7 @@ export function toMarkdown(question: Question): string {
     result += `${question.body}`;
 
     // If it's a multiple-choice question, add the options
-    if (question.type === "multiple_choice_question" && question.options) {
+    if (question.type === "multiple_choice_question") {
         // Add each option on its own line, prefixed with `- `
         result +=
             `\n` + question.options.map((option) => `- ${option}`).join("\n");
