@@ -22,7 +22,6 @@ function App(): React.JSX.Element {
             <TwoDice></TwoDice>
             <hr />
             <ChangeType></ChangeType>
-
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.{" "}
