@@ -1,26 +1,29 @@
 import React, { useState } from "react";
 
-export function CheckAnswer({
+export function MultipleChoiceQuestion({
+    options,
     expectedAnswer,
 }: {
+    options: string[];
     expectedAnswer: string;
 }): React.JSX.Element {
-    const [userAnswer, setUserAnswer] = useState("");
+    const [selectedChoice, setSelectedChoice] = useState(options[0]);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setUserAnswer(event.target.value);
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedChoice(event.target.value);
     };
 
     return (
         <div>
-            <h3>Check Answer</h3>
-            <input
-                type="text"
-                value={userAnswer}
-                onChange={handleChange}
-                placeholder="Enter your answer"
-            />
-            <p>{userAnswer === expectedAnswer ? "✔️" : "❌"}</p>
+            <h3>Multiple Choice Question</h3>
+            <select value={selectedChoice} onChange={handleChange}>
+                {options.map((option, index) => (
+                    <option key={index} value={option}>
+                        {option}
+                    </option>
+                ))}
+            </select>
+            <p>{selectedChoice === expectedAnswer ? "✔️" : "❌"}</p>
         </div>
     );
 }
